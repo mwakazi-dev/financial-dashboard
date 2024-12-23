@@ -1,46 +1,67 @@
-# Getting Started with Create React App
+# Financial Dashboard - React js, Typescript, Tailwind
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Overview
 
-## Available Scripts
+This project is a financial dashboard built with React js, Typescript, Tailwind. It provides users with a comprehensive view of their financial activities, card details, transactions, statistics, and user settings.
 
-In the project directory, you can run:
+## Setup Instructions
 
-### `yarn start`
+1. Clone the repository:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+` git clone [https://github.com/mwakazi-dev/financial-dashboard] cd [financial-dashboard]`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+2. Install dependencies:
+   `yarn install`
+3. Start the local server:
+   `json-server --watch db.json --port 8000`
+4. Start the app:
+   `yarn run start`
+5. Run unit test:
+   `yarn run test`
+6. Run lint:
+   `yarn run lint`
 
-### `yarn test`
+## Project Structure
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- `src/__tests__/`: All Unit tests
+- `src/pages/`: All pages
+- `src/assets/`: Images and icons
+- `src/components/`: Reusable React components
+- `src/constants/`: For code clarity and consistency
+- `lib/`: reusable functions and utilities
+- `services/`: Services for API calls
+- `styles/`: Handle all application styles
+- `types/`: TypeScript type definitions
+- `conteext/`: Context API for state management
 
-### `yarn build`
+## Key Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Responsive Design**: Ensures a seamless experience across devices.
+- **User-Friendly Interface**: Intuitive and easy-to-use interface.
+- **Data Visualization**: Charts and graphs for better data understanding.
+- **Interactive Elements**: Buttons and dropdowns for user interaction.
+- **Form Validations**: Ensures data accuracy and user experience.
+- **User Experience**: Focus on user experience and feedback.
+- **Performance**: Optimized for speed and performance.
+- **Accessibility**: Ensures accessibility for all users.
+- **Browser Compatibility**: Supports modern browsers.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Approach and Rationale
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. **TypeScript**: Implemented for improved code quality and maintainability.
 
-### `yarn eject`
+2. **Modular Component Structure**: Enhances reusability and maintainability.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+3. **Eslint and Prettier**: Ensures consistent code style and readability
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. **Tailwind CSS**: For rapid UI development and responsiveness.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+5. **Husky pre-commit hooks**: Enforces code quality and consistency
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+6. **Documentation**: Added comments and documentation to enhance code readability and collaboration.
 
-## Learn More
+## Future Improvements
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Implement Storybook for component documentation, testing and team collaboration
+- Refactor the codebase to follow best practices and improve code quality
+- Improve testing coverage
