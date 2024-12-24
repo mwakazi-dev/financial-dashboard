@@ -10,9 +10,13 @@ export default [
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
   {
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
     rules: {
       'no-console': 'error',
-      'no-unused-vars': 'error',
       'no-undef': 'off',
       'no-redeclare': 'off',
       'no-empty': 'off',

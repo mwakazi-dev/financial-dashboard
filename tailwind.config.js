@@ -5,7 +5,7 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     screens: {
-      mobile: '375px',
+      mobile: '320px',
       tablet: '640px',
       desktop: '1440px',
     },
@@ -44,5 +44,26 @@ module.exports = {
       input: 'var(--input)',
       ring: 'var(--ring)',
     },
+    extend: {
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+      },
+    },
   },
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        '.centered': {
+          paddingLeft: '25px',
+          paddingRight: '25px',
+        },
+        '@screen desktop': {
+          '.centered': {
+            paddingLeft: '40px',
+            paddingRight: '40px',
+          },
+        },
+      });
+    },
+  ],
 };
