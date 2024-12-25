@@ -7,24 +7,24 @@ import { Button } from './Button';
 import { NAV_ITEMS } from '../data/nav';
 import UserImage from '../assets/user.jpg';
 import SearchInput from './SearchInput';
-import classes from '../styles/navbar.module.css';
+import classes from '../styles/Navbar.module.css';
 
 const Navbar = () => {
   const location = useLocation();
 
   return (
-    <nav className="flex justify-between items-center">
-      <div className="desktop:hidden tablet:hidden">
+    <nav className="flex justify-between items-center ">
+      <div className="desktop:hidden ">
         <HamburgerIcon />
       </div>
       <h1 className="text-[20px] desktop:text-[28px] font-[600] desktop:leading-[33.89px]">
         {PageTitle[location.pathname as keyof typeof PageTitle]}
       </h1>
       <div className="flex items-center gap-[30px]">
-        <div className=" mobile:hidden desktop:block tablet:block">
+        <div className=" mobile:hidden desktop:block">
           <SearchInput />
         </div>
-        <div className="flex gap-[20px] items-center mobile:hidden desktop:flex tablet:flex">
+        <div className="flex gap-[20px] items-center mobile:hidden desktop:flex ">
           {NAV_ITEMS.map((item) => (
             <div className={classes['link-btn-container']} key={item.path}>
               <Button

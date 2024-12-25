@@ -6,7 +6,6 @@ module.exports = {
   theme: {
     screens: {
       mobile: '320px',
-      tablet: '640px',
       desktop: '1440px',
     },
     colors: {
@@ -47,6 +46,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
+        lato: ['Lato', 'sans-serif'],
       },
     },
   },
