@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 
 import CreditCard from '../../components/CreditCard';
 import TransactionCard from '../../components/TransactionCard';
+import WeeklyActivityChart from '../../components/WeeklyActivityChart';
+import ExpenseStatistics from '../../components/ExpenseStatistics';
 
 const DashboardPage = () => {
   const transactions = [
@@ -27,8 +29,26 @@ const DashboardPage = () => {
       transactionName: 'Eating out',
     },
   ];
+
+  const MOCK_WEEKLY_ACTIVITY = [
+    { day: 'Sat', withdraw: 450, deposit: 220 },
+    { day: 'Sun', withdraw: 320, deposit: 120 },
+    { day: 'Mon', withdraw: 300, deposit: 250 },
+    { day: 'Tue', withdraw: 450, deposit: 350 },
+    { day: 'Wed', withdraw: 150, deposit: 220 },
+    { day: 'Thu', withdraw: 400, deposit: 230 },
+    { day: 'Fri', withdraw: 380, deposit: 320 },
+  ];
+
+  const expenses = [
+    { name: 'Group A', value: 400 },
+    { name: 'Group B', value: 300 },
+    { name: 'Group C', value: 300 },
+    { name: 'Group D', value: 200 },
+  ];
+
   return (
-    <div className="centered bg-card desktop:bg-background w-full h-screen">
+    <div className="centered bg-card desktop:bg-background w-full ">
       <div className="grid grid-cols-12 mobile:gap-y-[48px] desktop:gap-[30px] w-full  pt-[24px] ">
         <div className=" mobile:col-span-12 desktop:col-span-8 ">
           <div className="flex justify-between items-center">
@@ -64,6 +84,31 @@ const DashboardPage = () => {
           </div>
           <div className="items-center overflow-x-hidden overflow-y-auto scrollbar-hide h-full">
             <TransactionCard transactions={transactions} />
+          </div>
+        </div>
+      </div>
+      <div className="grid grid-cols-12 mobile:gap-y-[48px] desktop:gap-[30px] w-full  pt-[24px]">
+        <div className="mobile:col-span-12 desktop:col-span-8 ">
+          <div className="flex justify-between items-center">
+            <h3 className="text-[16px] font-[600] leading-[19.36px]">
+              Weekly Activity
+            </h3>
+          </div>
+          <div className="flex gap-[30px] overflow-x-auto overflow-y-hidden scrollbar-hide h-full w-full">
+            <div className="mt-[24px] w-full">
+              <WeeklyActivityChart data={MOCK_WEEKLY_ACTIVITY} />
+            </div>
+          </div>
+        </div>
+        <div className="mobile:col-span-12 desktop:col-span-4">
+          <div className="flex justify-between items-center w-full">
+            <h3 className="text-[16px] font-[600] leading-[19.36px]">
+              Expense Statistics
+            </h3>
+          </div>
+
+          <div className="items-center overflow-x-hidden overflow-y-auto scrollbar-hide h-full mt-[24px]">
+            <ExpenseStatistics data={expenses} />
           </div>
         </div>
       </div>
