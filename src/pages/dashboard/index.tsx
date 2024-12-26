@@ -4,6 +4,8 @@ import CreditCard from '../../components/CreditCard';
 import TransactionCard from '../../components/TransactionCard';
 import WeeklyActivityChart from '../../components/WeeklyActivityChart';
 import ExpenseStatistics from '../../components/ExpenseStatistics';
+import QuickTransfer from '../../components/QuickTransfer';
+import BalanceHistoryChart from '../../components/BalanceHistoryChart';
 
 const DashboardPage = () => {
   const transactions = [
@@ -45,6 +47,16 @@ const DashboardPage = () => {
     { name: 'Group B', value: 300 },
     { name: 'Group C', value: 300 },
     { name: 'Group D', value: 200 },
+  ];
+
+  const history = [
+    { month: 'Jul', balance: 150 },
+    { month: 'Aug', balance: 315 },
+    { month: 'Sep', balance: 450 },
+    { month: 'Oct', balance: 750 },
+    { month: 'Nov', balance: 250 },
+    { month: 'Dec', balance: 550 },
+    { month: 'Jan', balance: 650 },
   ];
 
   return (
@@ -109,6 +121,32 @@ const DashboardPage = () => {
 
           <div className="items-center overflow-x-hidden overflow-y-auto scrollbar-hide h-full mt-[24px]">
             <ExpenseStatistics data={expenses} />
+          </div>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-12 mobile:gap-y-[48px] desktop:gap-[30px] w-full pt-[24px]">
+        <div className="mobile:col-span-12 desktop:col-span-5 ">
+          <div className="flex justify-between items-center">
+            <h3 className="text-[16px] font-[600] leading-[19.36px]">
+              Quick Transfer
+            </h3>
+          </div>
+          <div className="flex justify-center items-center gap-[30px] overflow-x-auto overflow-y-hidden scrollbar-hide h-full w-full">
+            <div className="mt-[24px] w-full ">
+              <QuickTransfer />
+            </div>
+          </div>
+        </div>
+        <div className="mobile:col-span-12 desktop:col-span-7">
+          <div className="flex justify-between items-center w-full">
+            <h3 className="text-[16px] font-[600] leading-[19.36px]">
+              Balance History
+            </h3>
+          </div>
+
+          <div className="items-center overflow-x-hidden overflow-y-auto scrollbar-hide  mt-[24px]">
+            <BalanceHistoryChart data={history} />
           </div>
         </div>
       </div>
