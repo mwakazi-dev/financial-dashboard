@@ -34,6 +34,7 @@ export default [
       'no-async-without-reason-or-error-or-timeout-or-cancel': 'off',
       'no-async-without-reason-or-error-or-timeout-or-cancel-error': 'off',
       'react/react-in-jsx-scope': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
     },
   },
 ];

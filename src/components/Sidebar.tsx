@@ -6,7 +6,7 @@ import Logo from './Logo';
 
 const Sidebar = () => {
   return (
-    <div className="bg-card h-screen col-span-2 mobile:hidden desktop:block border border-l-input border-t-0 border-b-0 border-r-input">
+    <div className="bg-card  col-span-2 mobile:hidden desktop:block border border-l-input border-t-0 border-b-0 border-r-input">
       <div className="flex flex-col items-center pt-[35px]">
         <div>
           <Logo />
