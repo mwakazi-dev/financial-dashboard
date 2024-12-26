@@ -7,12 +7,12 @@ import Sidebar from '../components/Sidebar';
 
 const RootLayout: FC = () => {
   return (
-    <div className="grid grid-cols-12 h-screen">
+    <div className="grid grid-cols-12">
       <Sidebar />
       <div className="mobile:col-span-12 desktop:col-span-10 ">
         <header className="col-span-12 bg-card centered mobile:py-[25px] mobile:h-[140px] desktop:h-[100px]">
           <Navbar />
-          <div className="my-[20px]  desktop:hidden ">
+          <div className="my-[20px] desktop:hidden">
             <SearchInput />
           </div>
         </header>

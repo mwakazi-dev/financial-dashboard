@@ -1,16 +1,18 @@
+import { Link } from 'react-router-dom';
+
 import { ReactComponent as CheckIcon } from '../assets/check.svg';
 import classes from '../styles/Logo.module.css';
 
 const Logo = () => {
   return (
-    <div className={classes['logo-container']}>
-      <div className="flex items-center gap-[10px]">
+    <Link to="/" className={classes['logo-container']}>
+      <div className="flex items-center gap-x-[10px]">
         <CheckIcon />
-        <h1 className="text-[25px] text-foreground font-[800] leading-[30.26px]">
+        <h1 className="text-[25px] leading-[30.26px] font-sans font-[800]">
           Soar Task
         </h1>
       </div>
-    </div>
+    </Link>
   );
 };
 

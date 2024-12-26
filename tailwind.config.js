@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     screens: {
       mobile: '320px',
-      desktop: '1440px',
+      desktop: '769px',
     },
     colors: {
       background: 'var(--background)',

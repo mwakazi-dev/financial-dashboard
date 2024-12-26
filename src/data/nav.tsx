@@ -18,8 +18,8 @@ export const NAV_ITEMS: NavItem[] = [
     icon: <CogIcon />,
   },
   {
-    label: 'Setting',
-    path: '/setting',
+    label: 'Notifications',
+    path: '/notifications',
     icon: <BellIcon className="w-[400px]" />,
   },
 ];
@@ -66,8 +66,8 @@ export const SIDE_NAV_ITEMS: NavItem[] = [
     icon: <EconometricsIcon />,
   },
   {
-    label: 'Setting',
-    path: '/setting',
+    label: 'Settings',
+    path: '/settings',
     icon: <SettingIcon />,
   },
 ];
