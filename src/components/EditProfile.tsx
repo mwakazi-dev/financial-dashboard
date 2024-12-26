@@ -25,7 +25,7 @@ const EditProfile: FC<Props> = ({
 }) => {
   return (
     <form
-      className="space-y-4 desktop:space-y-10 flex flex-col"
+      className="gap-y-4 desktop:gap-y-10 flex flex-col"
       onSubmit={submitHandler}
     >
       <div
@@ -56,19 +56,8 @@ const EditProfile: FC<Props> = ({
           ))}
         </div>
       </div>
-      <div
-        className={cn(
-          'grid gap-y-[16px] w-full',
-          'desktop:grid-cols-2 desktop:gap-x-[29px] desktop:gap-y-[22px] desktop:flex-1 desktop:w-auto',
-        )}
-      >
-        <div></div>
-        <div className="flex justify-end">
-          <Button className="w-[190px] ">
-            Save
-            {/* {isSubmitting ? 'Saving...' : 'Save'} */}
-          </Button>
-        </div>
+      <div className="desktop:flex desktop:justify-end w-full mobile:mt-[16px] desktop:mt-0">
+        <Button className="mobile:w-full desktop:w-[190px] mr-6">Save</Button>
       </div>
     </form>
   );

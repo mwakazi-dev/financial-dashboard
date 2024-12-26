@@ -24,9 +24,9 @@ const FormInput: FC<Props> = ({
   onChange,
 }) => {
   return (
-    <div className="grid w-full max-w-sm items-center gap-1.5">
+    <div className="grid w-full max-w-sm items-center gap-y-[9px]">
       <label
-        className="text-[13px] desktop:text-[16px] text-primary"
+        className="mobile:text-[13px] mobile:leading-[15.73px] mobile:font-[400] font-sans desktop:text-[16px] text-primary"
         htmlFor={id}
       >
         {label}
@@ -35,7 +35,7 @@ const FormInput: FC<Props> = ({
         id={id}
         type={type}
         className={cn(
-          'flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-secondary placeholder:text-[15px] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm rounded-[15px] h-[50px]',
+          'mobile:h-[40px] mobile:rounded-[10px] flex w-full border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-secondary mobile:placeholder:text-[12px] mobile:placeholder:leading-[14.52px] desktop:placeholder:text-[15px] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm rounded-[15px] font-sans font-[400]',
           className,
         )}
         placeholder={placeholder}

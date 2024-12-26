@@ -32,7 +32,7 @@ export const inputFields: InputField[] = [
   {
     id: 'dateOfBirth',
     type: 'picker',
-    label: 'Password',
+    label: 'Date of Birth',
     placeholder: '25 January 1990',
     required: true,
   },

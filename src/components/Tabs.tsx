@@ -12,7 +12,7 @@ const TabsList = React.forwardRef<
   <TabsPrimitive.List
     ref={ref}
     className={cn(
-      'flex flex-nowrap  h-auto rounded-none border-b border-input  p-0 desktop:space-x-10 ',
+      'flex flex-nowrap h-auto rounded-none border-b border-input  p-0 desktop:space-x-10 ',
       className,
     )}
     {...props}
@@ -27,10 +27,10 @@ const TabsTrigger = React.forwardRef<
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
-      'relative rounded-none py-2 text-secondary text-[13px]',
+      'mobile:text-[13px] mobile:leading-[15.73px] desktop:text-[16px] desktop:leading-[19.36px] relative rounded-none py-2 text-secondary font-sans font-[500]',
       'after:absolute after:inset-x-0 after:bottom-0 after:h-0 after:bg- after:bg-foreground after:transition-all after:rounded-t-full',
       'data-[state=active]:bg-transparent data-[state=active]:font-medium data-[state=active]:text-foreground data-[state=active]:shadow-none data-[state=active]:after:h-[3px]',
-      'desktop:min-w-[114px] desktop:text-[16px]',
+      'desktop:min-w-[114px]',
       className,
     )}
     {...props}

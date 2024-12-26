@@ -1,10 +1,10 @@
-import EditProfile from '../../components/EditProfile';
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
 } from '../../components/Tabs';
+import EditProfile from '../../components/EditProfile';
 import useForm from '../../hooks/useForm';
 import useImageHandler from '../../hooks/useImageHandler';
 
@@ -42,9 +42,9 @@ const SettingPage = () => {
   };
 
   return (
-    <section className="bg-card centered my-[30px] mx-[40px] rounded-[25px] bg-card">
-      <Tabs defaultValue="edit-profile" className="pt-[30px]">
-        <TabsList className="grid grid-cols-3 desktop:flex">
+    <section className="mobile:m-[25px] mobile:rounded-[15px] mobile:px-[20px] mobile:py-[22px] desktop:mx-[40px] desktop:my-[30px] desktop:px-[46px] desktop:py-[30px] bg-card h-fit min-h-[700px]">
+      <Tabs defaultValue="edit-profile">
+        <TabsList className="grid grid-cols-3 mobile:gap-x-[42px] desktop:flex">
           <TabsTrigger value="edit-profile">Edit Profile</TabsTrigger>
           <TabsTrigger value="preferences">Preferences</TabsTrigger>
           <TabsTrigger value="security">Security</TabsTrigger>
