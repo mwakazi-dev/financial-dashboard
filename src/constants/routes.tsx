@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import RootLayout from '../pages/layout';
 import DashboardPage from '../pages/dashboard';
+import SettingPage from '../pages/setting';
 
 const router = createBrowserRouter([
   {
@@ -11,6 +12,10 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <DashboardPage />,
+      },
+      {
+        path: '/setting',
+        element: <SettingPage />,
       },
     ],
   },

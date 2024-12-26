@@ -11,8 +11,8 @@ const Sidebar = () => {
         <div>
           <Logo />
         </div>
-        <nav className="mt-[13px]">
-          <ul className="mt-[70px] flex justify-center  flex-col gap-[31px]">
+        <nav>
+          <ul className="mt-[50px] flex justify-center  flex-col gap-[31px]">
             {SIDE_NAV_ITEMS.map((item) => (
               <li key={item.path} className="">
                 <NavLink
