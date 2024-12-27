@@ -8,11 +8,13 @@ import '../styles/embla.css';
 
 interface Props {
   slides: any[];
-  options: { loop: true };
+  options?: any;
 }
 
-const Carousel: FC<Props> = ({ slides, options }) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel(options);
+const Carousel: FC<Props> = ({ slides }) => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+  });
 
   const nextHandler = () => {
     if (!emblaApi) return;
@@ -21,33 +23,36 @@ const Carousel: FC<Props> = ({ slides, options }) => {
 
   return (
     <section className="embla flex">
-      <div className="embla__viewport " ref={emblaRef}>
-        <div className="embla__container ">
+      <div className="embla__viewport" ref={emblaRef}>
+        <div className="embla__container">
           {slides.map((slide, index) => (
-            <div className="embla__slide mr-[24px]" key={index}>
+            <div
+              className="embla__slide mr-[24px] mobile:aspect-[60/93] w-[60px]"
+              key={index}
+            >
               <div className="embla__slide__number flex justify-center items-center">
                 <div>
                   <img
-                    src="https://github.com/shadcn.png"
+                    src={slide.imageUrl}
                     alt="Your alt text"
-                    className="rounded-full mr-[34px] aspect-[70/70] w-[70px] h-[70px]"
+                    className="rounded-full mr-[34px] aspect-[50/50] w-[50px]"
                   />
                   <div className="flex flex-col items-center ">
                     <h5
                       className={cn(
-                        'text-[16px] text-card-foreground font-[500] mt-[10px]',
+                        'mobile:text-[12px] mobile:leading-[14.52px] text-card-foreground font-sans font-[400] mt-[10px]',
                         index === 0 ? 'font-bold ' : 'font-normal',
                       )}
                     >
-                      Livia Bator
+                      {slide.name}
                     </h5>
                     <p
                       className={cn(
-                        'text-[15px text-[#718EBF] leading-[18.15px] font-[sans]',
+                        'mobile:text-[12px] mobile:leading-[14.52px] text-[#718EBF] leading-[18.15px] font-sans font-[400]',
                         index === 0 ? 'font-bold' : 'font-normal',
                       )}
                     >
-                      Director
+                      {slide.role}
                     </p>
                   </div>
                 </div>

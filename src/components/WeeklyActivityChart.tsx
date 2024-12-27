@@ -16,10 +16,10 @@ interface Props {
   data: any[];
 }
 const WeeklyActivityChart: FC<Props> = ({ data }) => {
-  // const isDesktop = useMediaQuery("(min-width: 1280px)");
   const { isMobile } = useBreakpoints();
+
   return (
-    <div className="w-full rounded-[25px] mobile:h-[254px] desktop:h-[322px] bg-card py-[28px] px-[30px]">
+    <div className="w-full rounded-[25px] mobile:h-[254px] desktop:h-[322px] bg-card mobile:py-[33px] mobile:px-[18px]">
       <div
         className={cn(
           'bg-card rounded-3xl aspect-[325/254]',

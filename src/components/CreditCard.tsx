@@ -23,19 +23,19 @@ const CreditCard: FC<Props> = ({
   variant = 'light',
 }) => {
   return (
-    <div className="mobile:w-[265px] desktop:w-[350px]  desktop:h-[235px] mobile:h-[170px] font-[lato]">
+    <div className="mobile:aspect-[265/170] mobile:w-[265px] desktop:w-[350px]  desktop:h-[235px] rounded-[15px] text-card">
       <div
         className={cn(
-          'w-full px-[26px] pt-[24px] pb-[110px]  desktop:pb-[40px] mobile:h-[119px]  desktop:h-[165px]  bg-gradient-to-r from-[#4a495a] to-[#1d1d23] rounded-t-[15px] text-card ',
+          'mobile:py-[17px] mobile:px-[20px]  bg-gradient-to-r from-[#5B5A6F] to-[#000000] rounded-t-[15px]',
           variant === 'light' &&
             'bg-card bg-gradient-to-r from-[#ffff] to-[#ffff] border border-input',
         )}
       >
         <div className="flex justify-between">
-          <div className="flex flex-col gap-[1px] ">
+          <div className="flex flex-col gap-y-[1px] ">
             <h6
               className={cn(
-                'text-[11px]  desktop:text-[12px] leading-[13.2px] font-[400] text-card opacity-[70%]',
+                'mobile:text-[11px] mobile:leading-[13.2px] desktop:text-[12px] font-lato font-[400] text-card opacity-[70%]',
                 variant === 'light' && 'text-[#718EBF]',
               )}
             >
@@ -43,7 +43,7 @@ const CreditCard: FC<Props> = ({
             </h6>
             <p
               className={cn(
-                'text-[16px] desktop:text-[20px] leading-[19.2px] font-[600]',
+                'mobile:text-[16px] mobile:leading-[19.2px] desktop:text-[20px] font-lato font-[600]',
                 variant === 'light' && 'text-[#343C6A]',
               )}
             >
@@ -52,11 +52,15 @@ const CreditCard: FC<Props> = ({
           </div>
           {variant === 'dark' ? <ChipLightIcon /> : <ChipDarkIcon />}
         </div>
-        <div className="flex justify-between w-[193px] mt-[23px] ">
+        <div
+          className={cn(
+            'flex justify-start gap-y-[1.89px] gap-x-[57px]  mobile:mt-[23px]',
+          )}
+        >
           <div>
             <h6
               className={cn(
-                'text-[10px] desktop:text-[12px] font-[400] leading-[12px] opacity-[70%]',
+                'mobile:text-[10px] mobile:leading-[12px] desktop:text-[12px] font-lato font-[400]  opacity-[70%]',
                 variant === 'light' && 'text-[#718EBF]',
               )}
             >
@@ -64,17 +68,17 @@ const CreditCard: FC<Props> = ({
             </h6>
             <p
               className={cn(
-                'text-[13px]  desktop:text-[15px] font-[600] leading-[15.6px] ',
+                'mobile:text-[13px] mobile:leading-[15.6px] desktop:text-[15px] font-lato font-[600]  ',
                 variant === 'light' && 'text-[#343C6A]',
               )}
             >
               {cardHolderName}
             </p>
           </div>
-          <div>
+          <div className="flex flex-col gap-y-[1.89px]">
             <h6
               className={cn(
-                'text-[10px]  desktop:text-[12px] font-[400] leading-[12px] opacity-[70%]',
+                'mobile:text-[10px] mobile:leading-[12px] desktop:text-[12px] font-lato font-[400]  opacity-[70%]',
                 variant === 'light' && 'text-[#718EBF]',
               )}
             >
@@ -82,7 +86,7 @@ const CreditCard: FC<Props> = ({
             </h6>
             <p
               className={cn(
-                'text-[13px] desktop:text-[15px] font-[600] leading-[15.6px]',
+                'mobile:text-[13px] mobile:leading-[15.6px] desktop:text-[15px] font-lato font-[600] ',
                 variant === 'light' && 'text-[#343C6A]',
               )}
             >
@@ -93,26 +97,20 @@ const CreditCard: FC<Props> = ({
       </div>
       <footer
         className={cn(
-          'px-[26px]  w-full mobile:h-[51px] desktop:h-[70px] bg-gradient-to-r from-[#5f5f6d] to-[#27272d] rounded-b-[15px] flex items-center ',
+          'w-full mobile:px-[20px] mobile:h-[51px] desktop:h-[70px] bg-gradient-to-r from-[#5B5A6F] from-[15%] to-[#000000] rounded-b-[15px] flex justify-between items-center ',
           variant === 'light' &&
             'bg-card bg-gradient-to-r from-[#ffff] to-[#ffff] border border-input',
         )}
       >
-        <div className="flex justify-between items-center w-full">
-          <p
-            className={cn(
-              'text-[15px] text-card  desktop:text-[22px] font-[lato]',
-              variant === 'light' && 'text-[#343C6A]',
-            )}
-          >
-            {cardNumber.slice(0, 4)} **** **** {cardNumber.slice(12, 16)}
-          </p>
-          {variant === 'light' ? (
-            <MastercardLightIcon />
-          ) : (
-            <MastercardDarkIcon />
+        <p
+          className={cn(
+            'mobile:text-[15px] text-card  desktop:text-[22px] font-lato',
+            variant === 'light' && 'text-[#343C6A]',
           )}
-        </div>
+        >
+          {cardNumber.slice(0, 4)} **** **** {cardNumber.slice(12, 16)}
+        </p>
+        {variant === 'light' ? <MastercardLightIcon /> : <MastercardDarkIcon />}
       </footer>
     </div>
   );

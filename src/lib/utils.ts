@@ -10,9 +10,9 @@ export const formatAmount = (amount: number) => {
   return new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
+    maximumFractionDigits: 0,
   }).format(amount);
 };
-
 export const formSchema = z.object({
   yourName: z
     .string()
