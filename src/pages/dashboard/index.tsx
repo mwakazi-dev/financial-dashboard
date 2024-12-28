@@ -2,13 +2,14 @@ import { useQuery } from '@tanstack/react-query';
 
 import { transactionService } from '../../services/transaction';
 import { cardService } from '../../services/card';
+import { activityService } from '../../services/activity';
+import { expenseService } from '../../services/expense';
 import CreditCard from '../../components/CreditCard';
 import WeeklyActivityChart from '../../components/WeeklyActivityChart';
 import ExpenseStatistics from '../../components/ExpenseStatistics';
 import GridTitle from '../../components/GridTitle';
 import TransactionList from '../../components/TransactionList';
 import CardLoading from '../../components/CardLoading';
-import { activityService } from '../../services/activity';
 
 const DashboardPage = () => {
   // Queries
@@ -31,12 +32,11 @@ const DashboardPage = () => {
       queryFn: activityService.getWeeklyActivity,
     });
 
-  const expenses = [
-    { name: 'Group A', value: 400 },
-    { name: 'Group B', value: 300 },
-    { name: 'Group C', value: 300 },
-    { name: 'Group D', value: 200 },
-  ];
+  const { data: expenseStatisticsData, isLoading: isExpenseStatisticsLoading } =
+    useQuery({
+      queryKey: ['getExpenses'],
+      queryFn: expenseService.getExpenses,
+    });
 
   return (
     <section className="mobile:bg-card desktop:bg-background mobile:py-[20px] mobile:px-[25px] desktop:py-[24px] desktop:px-[40px]">
@@ -84,7 +84,10 @@ const DashboardPage = () => {
         <div className="col-span-12 desktop:col-span-4">
           <GridTitle title="Expenses" />
           <div className="mt-[22px] desktop:mt-[20px]">
-            <ExpenseStatistics data={expenses} />
+            <ExpenseStatistics
+              isLoading={isExpenseStatisticsLoading}
+              data={expenseStatisticsData}
+            />
           </div>
         </div>
       </div>

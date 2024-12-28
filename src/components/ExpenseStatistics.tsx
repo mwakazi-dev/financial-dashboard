@@ -1,6 +1,8 @@
 import { FC } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 
+import withLoading from '../hoc/withLoading';
+
 const COLORS = ['#FC7900', '#343C6A', '#396AFF', '#232323'];
 const RADIAN = Math.PI / 180;
 
@@ -29,14 +31,14 @@ const ExpenseStatistics: FC<Props> = ({ data }) => {
         fill="white"
         textAnchor="middle"
         dominantBaseline="middle"
-        className="text-xs font-bold "
+        className="text-[12px] font-sans font-[600] "
       >
         <tspan
           x={x}
           y={y - 8}
           fill="white"
         >{`${(percent * 100).toFixed(0)}%`}</tspan>
-        <tspan x={x + 8} y={y + 7}>
+        <tspan x={x + 2} y={y + 7}>
           {name}
         </tspan>
       </text>
@@ -53,7 +55,7 @@ const ExpenseStatistics: FC<Props> = ({ data }) => {
             label={renderCustomizedLabel}
             dataKey="value"
           >
-            {data.map((entry, index) => (
+            {data.map((_, index) => (
               <Cell
                 strokeWidth={8.5}
                 key={`cell-${index}`}
@@ -68,4 +70,4 @@ const ExpenseStatistics: FC<Props> = ({ data }) => {
   );
 };
 
-export default ExpenseStatistics;
+export default withLoading(ExpenseStatistics);

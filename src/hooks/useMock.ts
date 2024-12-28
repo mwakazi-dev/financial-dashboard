@@ -64,13 +64,20 @@ const mockCards = [
   },
 ];
 const mockWeeklyActivity = [
-  { day: 'Sat', withdraw: 450, deposit: 220 },
-  { day: 'Sun', withdraw: 320, deposit: 120 },
+  { day: 'Sat', withdraw: 550, deposit: 220 },
+  { day: 'Sun', withdraw: 10, deposit: 120 },
   { day: 'Mon', withdraw: 300, deposit: 250 },
   { day: 'Tue', withdraw: 450, deposit: 350 },
-  { day: 'Wed', withdraw: 150, deposit: 220 },
+  { day: 'Wed', withdraw: 140, deposit: 220 },
   { day: 'Thu', withdraw: 400, deposit: 230 },
-  { day: 'Fri', withdraw: 380, deposit: 320 },
+  { day: 'Fri', withdraw: 30, deposit: 320 },
+];
+
+const mockExpenses = [
+  { name: 'Bill Expense', value: 300 },
+  { name: 'Entertainment', value: 400 },
+  { name: 'Investment', value: 300 },
+  { name: 'Others', value: 200 },
 ];
 
 export const useMockAPI = () => {
@@ -93,6 +100,9 @@ export const useMockAPI = () => {
         return new Response(JSON.stringify(mockWeeklyActivity), {
           status: 200,
         });
+      }
+      if (url.includes('/api/expenses')) {
+        return new Response(JSON.stringify(mockExpenses), { status: 200 });
       }
       return originalFetch(input, init);
     };
