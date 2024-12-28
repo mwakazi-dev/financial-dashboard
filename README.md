@@ -46,6 +46,29 @@ This project is a financial dashboard built with React js, Typescript, Tailwind.
 - **Accessibility**: Ensures accessibility for all users.
 - **Browser Compatibility**: Supports modern browsers.
 
+## Technologies Used
+
+- **React**: JavaScript library for building user interfaces.
+- **Typescript**: Adds static typing to JavaScript.
+- **Tailwind CSS**: Utility-first CSS framework.
+- **React Router**: For routing within the application.
+- **React Query**: For data fetching and caching.
+- **React Toast**: For displaying toast notifications.
+
+## Design Patterns
+
+- **Component-Based Architecture**: Reusable components for modularity.
+- **Context API**: State management for efficient data flow.
+- **React Query**: Efficient data fetching and caching.
+- **Tailwind CSS**: Utility-first CSS framework for rapid UI development.
+- **React Testing Library**: For unit testing React components.
+- **Eslint and Prettier**: Ensures code quality and consistency.
+- **Husky pre-commit hooks**: Enforces code quality and consistency.
+- **Container and presentation pattern**: Enhances code reusability and maintainability.
+- **The HOC(Higher Order Component)Pattern**: Enhances code reusability and maintainability.
+- **Provider Pattern(Data management with Providers)**: manages data flow and state management.
+- **Lazy loading**: Enhances performance and improves user experience.
+
 ## Approach and Rationale
 
 1. **TypeScript**: Implemented for improved code quality and maintainability.
@@ -62,6 +85,10 @@ This project is a financial dashboard built with React js, Typescript, Tailwind.
 
 ## Future Improvements
 
+- finish the implementation of the remaining section of the dashboard
+- Improve responsiveness and performance
 - Implement Storybook for component documentation, testing and team collaboration
 - Refactor the codebase to follow best practices and improve code quality
-- Improve testing coverage
+- Improve testing coverage and add more unit tests
+- Implement a CI/CD pipeline for automated testing and deployment
+- Implement a user authentication system to allow users to log in and access their financial data

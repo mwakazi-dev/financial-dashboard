@@ -1,4 +1,3 @@
-import { lazy } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
 import { transactionService } from '../../services/transaction';
@@ -7,15 +6,10 @@ import { activityService } from '../../services/activity';
 import { expenseService } from '../../services/expense';
 import GridTitle from '../../components/GridTitle';
 import CardLoading from '../../components/CardLoading';
-
-const CreditCard = lazy(() => import('../../components/CreditCard'));
-const TransactionList = lazy(() => import('../../components/TransactionList'));
-const WeeklyActivityChart = lazy(
-  () => import('../../components/WeeklyActivityChart'),
-);
-const ExpenseStatistics = lazy(
-  () => import('../../components/ExpenseStatistics'),
-);
+import CreditCard from '../../components/CreditCard';
+import TransactionList from '../../components/TransactionList';
+import WeeklyActivityChart from '../../components/WeeklyActivityChart';
+import ExpenseStatistics from '../../components/ExpenseStatistics';
 
 const DashboardPage = () => {
   // Queries
