@@ -23,10 +23,10 @@ const CreditCard: FC<Props> = ({
   variant = 'light',
 }) => {
   return (
-    <div className="mobile:aspect-[265/170] mobile:w-[265px] desktop:w-[350px]  desktop:h-[235px] rounded-[15px] text-card">
+    <div className="mobile:aspect-[265/170] mobile:w-[265px] desktop:aspect-[350/235] desktop:w-[350px] mobile:rounded-[15px] desktop:rounded-[25px] text-card">
       <div
         className={cn(
-          'mobile:py-[17px] mobile:px-[20px]  bg-gradient-to-r from-[#5B5A6F] to-[#000000] rounded-t-[15px]',
+          'mobile:py-[17px] mobile:px-[20px] bg-gradient-to-r from-[#5B5A6F] to-[#000000] rounded-t-[15px]',
           variant === 'light' &&
             'bg-card bg-gradient-to-r from-[#ffff] to-[#ffff] border border-input',
         )}
@@ -35,7 +35,7 @@ const CreditCard: FC<Props> = ({
           <div className="flex flex-col gap-y-[1px] ">
             <h6
               className={cn(
-                'mobile:text-[11px] mobile:leading-[13.2px] desktop:text-[12px] font-lato font-[400] text-card opacity-[70%]',
+                'mobile:text-[11px] mobile:leading-[13.2px] desktop:text-[12px] mobile:leading-[14.4px] font-lato font-[400] text-card opacity-[70%]',
                 variant === 'light' && 'text-[#718EBF]',
               )}
             >

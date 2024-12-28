@@ -13,6 +13,7 @@ interface Props {
 
 const Carousel: FC<Props> = ({ slides }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: 'start',
     loop: true,
   });
 
@@ -22,7 +23,7 @@ const Carousel: FC<Props> = ({ slides }) => {
   };
 
   return (
-    <section className="embla flex">
+    <section className="embla flex h-auto  desktop:w-[445px] desktop:px-6 desktop:py-8 w-full">
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
           {slides.map((slide, index) => (
@@ -33,14 +34,14 @@ const Carousel: FC<Props> = ({ slides }) => {
               <div className="embla__slide__number flex justify-center items-center">
                 <div>
                   <img
-                    src={slide.imageUrl}
+                    src={slide.image}
                     alt="Your alt text"
-                    className="rounded-full mr-[34px] aspect-[50/50] w-[50px]"
+                    className="rounded-full size-[50px] desktop:size-20"
                   />
-                  <div className="flex flex-col items-center ">
+                  <div className="flex flex-col items-center">
                     <h5
                       className={cn(
-                        'mobile:text-[12px] mobile:leading-[14.52px] text-card-foreground font-sans font-[400] mt-[10px]',
+                        'whitespace-nowrap mt-4 text-xs desktop:text-sm ',
                         index === 0 ? 'font-bold ' : 'font-normal',
                       )}
                     >
