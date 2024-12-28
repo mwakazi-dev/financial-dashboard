@@ -1,5 +1,5 @@
 const CardSkeleton = () => (
-  <div className="flex justify-center items-center mt-[24px] text-foreground">
+  <div className="flex items-center justify-center w-full h-[200px]">
     Loading...
   </div>
 );

@@ -49,14 +49,21 @@ const mockTransactions: Transaction[] = [
 
 const mockCards = [
   {
-    id: 1,
-    balance: 5756,
-    cardHolder: 'Eddy Cusuma',
-    cardNumber: '3778 **** **** 1234',
+    id: '1',
+    cardNumber: '9634567890123456',
+    cardHolderName: 'John Doe',
+    cardExpiry: '01/25',
+    balance: 4000,
+  },
+  {
+    id: '2',
+    cardNumber: '1234567890123456',
+    cardHolderName: 'Chris Doe',
+    cardExpiry: '01/29',
+    balance: 40000,
   },
 ];
 
-// In-App API Mock
 export const useMockAPI = () => {
   useEffect(() => {
     const originalFetch = window.fetch;
@@ -82,7 +89,6 @@ export const useMockAPI = () => {
   }, []);
 };
 
-// In-App WebSocket Mock
 export const useMockWebSocket = () => {
   useEffect(() => {
     const socket = io(window.location.origin);

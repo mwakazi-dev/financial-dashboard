@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 
 import { transactionService } from '../../services/transaction';
+import { cardService } from '../../services/card';
 import CreditCard from '../../components/CreditCard';
 import WeeklyActivityChart from '../../components/WeeklyActivityChart';
 import ExpenseStatistics from '../../components/ExpenseStatistics';
@@ -17,22 +18,10 @@ const DashboardPage = () => {
     queryFn: transactionService.getTransactionHistory,
   });
 
-  const creditCards = [
-    {
-      id: '1',
-      cardNumber: '1234567890123456',
-      cardHolderName: 'John Doe',
-      cardExpiry: '01/25',
-      balance: 4000,
-    },
-    {
-      id: '2',
-      cardNumber: '1234567890123456',
-      cardHolderName: 'John Doe',
-      cardExpiry: '01/25',
-      balance: 9000,
-    },
-  ];
+  const { data: cardData, isLoading: isCardLoading } = useQuery({
+    queryKey: ['getCards'],
+    queryFn: cardService.getCards,
+  });
 
   const MOCK_WEEKLY_ACTIVITY = [
     { day: 'Sat', withdraw: 450, deposit: 220 },
@@ -58,7 +47,12 @@ const DashboardPage = () => {
         <div className="col-span-12 desktop:col-span-8">
           <GridTitle title="My Cards" path="/cards" />
           <div className="flex desktop:gap-x-[30px] w-full overflow-x-auto overflow-y-hidden scrollbar-hide mt-[22px] desktop:mt-[20px]">
-            {creditCards.map((item, index) => (
+            {isCardLoading && (
+              <div className="flex items-center justify-center w-full h-[200px]">
+                <p>Loading...</p>
+              </div>
+            )}
+            {cardData?.map((item: any, index: number) => (
               <div key={item.id} className="w-full">
                 <CreditCard
                   cardNumber={item.cardNumber}

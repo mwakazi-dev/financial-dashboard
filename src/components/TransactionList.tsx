@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { Icon } from '../constants/icons';
 import { Transaction } from '../types/transaction';
 import { cn } from '../lib/utils';
-import withSkeleton from '../hoc/withLoading';
+import withLoading from '../hoc/withLoading';
 
 interface Props {
   transactions: Transaction[];
@@ -58,4 +58,4 @@ const TransactionList: FC<Props> = ({ transactions }) => {
   );
 };
 
-export default withSkeleton(TransactionList);
+export default withLoading(TransactionList);
