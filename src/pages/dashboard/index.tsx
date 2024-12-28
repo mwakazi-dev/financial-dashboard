@@ -5,6 +5,23 @@ import GridTitle from '../../components/GridTitle';
 import TransactionList from '../../components/TransactionList';
 
 const DashboardPage = () => {
+  const creditCards = [
+    {
+      id: '1',
+      cardNumber: '1234567890123456',
+      cardHolderName: 'John Doe',
+      cardExpiry: '01/25',
+      balance: 4000,
+    },
+    {
+      id: '2',
+      cardNumber: '1234567890123456',
+      cardHolderName: 'John Doe',
+      cardExpiry: '01/25',
+      balance: 9000,
+    },
+  ];
+
   const transactions = [
     {
       id: '1',
@@ -55,23 +72,6 @@ const DashboardPage = () => {
     { name: 'Group B', value: 300 },
     { name: 'Group C', value: 300 },
     { name: 'Group D', value: 200 },
-  ];
-
-  const creditCards = [
-    {
-      id: '1',
-      cardNumber: '1234567890123456',
-      cardHolderName: 'John Doe',
-      cardExpiry: '01/25',
-      balance: 4000,
-    },
-    {
-      id: '2',
-      cardNumber: '1234567890123456',
-      cardHolderName: 'John Doe',
-      cardExpiry: '01/25',
-      balance: 9000,
-    },
   ];
 
   return (
