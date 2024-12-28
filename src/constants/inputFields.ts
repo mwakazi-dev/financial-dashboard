@@ -2,7 +2,7 @@ import { InputField } from '../types/input';
 
 export const inputFields: InputField[] = [
   {
-    id: 'yourName',
+    id: 'fullName',
     type: 'text',
     label: 'Your Name',
     placeholder: 'Charlene Reed',

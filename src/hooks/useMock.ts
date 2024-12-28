@@ -5,8 +5,10 @@ import {
   mockCards,
   mockExpenses,
   mockTransactions,
+  mockUsers,
   mockWeeklyActivity,
 } from '../data/mockApi';
+import { binarySearchItem } from '../lib/utils';
 
 export const useMockAPI = () => {
   useEffect(() => {
@@ -32,9 +34,16 @@ export const useMockAPI = () => {
       if (url.includes('/api/expenses')) {
         return new Response(JSON.stringify(mockExpenses), { status: 200 });
       }
+
+      // Handle fetching a single user
+      if (url.includes('/api/user/')) {
+        const userId = url.split('/api/user/')[1];
+        const user = binarySearchItem(mockUsers, userId); // use binary search for performance
+        return new Response(JSON.stringify(user), { status: user ? 200 : 404 });
+      }
+
       return originalFetch(input, init);
     };
-
     return () => {
       window.fetch = originalFetch;
     };

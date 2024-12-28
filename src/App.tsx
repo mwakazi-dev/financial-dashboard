@@ -1,7 +1,9 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Toaster } from 'react-hot-toast';
 
-import AppRoutes from './constants/routes';
 import { useMockAPI, useMockWebSocket } from './hooks/useMock';
+import AppRoutes from './constants/routes';
+import AuthProvider from './context/AuthContext';
 
 const queryClient = new QueryClient();
 const App = () => {
@@ -10,7 +12,10 @@ const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <AppRoutes />
+      <AuthProvider>
+        <AppRoutes />
+        <Toaster />
+      </AuthProvider>
     </QueryClientProvider>
   );
 };

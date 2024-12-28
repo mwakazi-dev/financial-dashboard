@@ -10,6 +10,7 @@ interface Props {
   image: File | null;
   preview: string;
   values: any;
+  isPending: boolean | undefined;
   handleImageChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onChange: (name: string, value: string) => void;
   submitHandler: (e: React.FormEvent<HTMLFormElement>) => void;
@@ -22,6 +23,7 @@ const EditProfile: FC<Props> = ({
   handleImageChange,
   onChange,
   submitHandler,
+  isPending,
 }) => {
   return (
     <form
@@ -47,17 +49,23 @@ const EditProfile: FC<Props> = ({
         >
           {inputFields.map((field) => (
             <FormInput
-              key={field.id}
+              key={field?.id}
               {...field}
-              error={values?.error[field.id][0]}
-              onChange={(e) => onChange(field.id, e.target.value)}
+              error={values?.error[field?.id][0]}
+              onChange={(e) => onChange(field.id, e.target?.value)}
               value={values?.value[field.id] as any}
             />
           ))}
         </div>
       </div>
       <div className="desktop:flex desktop:justify-end w-full mobile:mt-[16px] desktop:mt-0">
-        <Button className="mobile:w-full desktop:w-[190px] mr-6">Save</Button>
+        <Button
+          className="mobile:w-full desktop:w-[190px] mr-6"
+          disabled={isPending}
+          type="submit"
+        >
+          {isPending ? 'Saving...' : 'Save'}
+        </Button>
       </div>
     </form>
   );

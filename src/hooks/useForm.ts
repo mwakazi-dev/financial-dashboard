@@ -18,7 +18,7 @@ const useForm = (initialValues: any) => {
     });
 
     const errors = {
-      yourName: [],
+      fullName: [],
       userName: [],
       email: [],
       password: [],

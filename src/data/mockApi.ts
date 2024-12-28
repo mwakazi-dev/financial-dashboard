@@ -75,3 +75,32 @@ export const mockExpenses = [
   { name: 'Investment', value: 300 },
   { name: 'Others', value: 200 },
 ];
+
+export const mockUsers = [
+  {
+    id: '1',
+    fullName: 'Elon Musk',
+    userName: 'elon_musk',
+    email: 'elon.musk@gmail.com',
+    dateOfBirth: '01/01/1990',
+    presentAddress: '590 Main Street',
+    permanentAddress: '700 Main Street',
+    city: 'New York',
+    postalCode: '10001',
+    country: 'South Africa',
+    image: 'https://randomuser.me/api/portraits/men/1.jpg',
+  },
+  {
+    id: '2',
+    fullName: 'John Smith',
+    userName: 'john_smith',
+    email: 'john.smith@gmail.com',
+    dateOfBirth: '01/01/1990',
+    presentAddress: '123 Main Street',
+    permanentAddress: '456 Main Street',
+    city: 'Nairobi',
+    postalCode: '00517',
+    country: 'Kenya',
+    image: 'https://randomuser.me/api/portraits/men/2.jpg',
+  },
+];

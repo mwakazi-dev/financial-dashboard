@@ -32,7 +32,7 @@ This project is a financial dashboard built with React js, Typescript, Tailwind.
 - `services/`: Services for API calls
 - `styles/`: Handle all application styles
 - `types/`: TypeScript type definitions
-- `conteext/`: Context API for state management
+- `context/`: Context API for state management
 
 ## Key Features
 

@@ -57,3 +57,31 @@ export const formSchema = z.object({
     .min(3, { message: 'Name must be at least 3 characters long.' })
     .trim(),
 });
+
+/**
+ * Perform a binary search on a sorted array of objects to find an item with a specific id.
+ * @param {any[]} arr The array of objects to search.
+ * @param {string} itemId The id of the item to search for.
+ * @returns {null | any} The item with the specified id, or null if not found.
+ */
+
+// Function to perform binary search which is much faster
+export const binarySearchItem = (arr: any[], itemId: string) => {
+  let left = 0;
+  let right = arr.length - 1;
+
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2);
+    const midArr = arr[mid];
+
+    if (midArr.id === itemId) {
+      return midArr; // User found
+    } else if (midArr.id < itemId) {
+      left = mid + 1; // Search right half
+    } else {
+      right = mid - 1; // Search left half
+    }
+  }
+
+  return null;
+};

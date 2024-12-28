@@ -4,8 +4,15 @@ import { Outlet } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import SearchInput from '../components/SearchInput';
 import Sidebar from '../components/Sidebar';
+import useAuth from '../hooks/useAuth';
 
 const RootLayout: FC = () => {
+  const { appLoading } = useAuth();
+
+  if (appLoading || appLoading === undefined) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="grid grid-cols-12">
       <Sidebar />

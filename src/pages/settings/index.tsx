@@ -7,12 +7,14 @@ import {
 import EditProfile from '../../components/EditProfile';
 import useForm from '../../hooks/useForm';
 import useImageHandler from '../../hooks/useImageHandler';
+import useAuth from '../../hooks/useAuth';
 
 const SettingPage = () => {
+  const { authState, updateProfile, isPending } = useAuth();
   const { image, preview, handleImageChange } = useImageHandler();
   const { values, onInputChange } = useForm({
-    value: {
-      yourName: '',
+    value: authState?.user || {
+      fullName: '',
       userName: '',
       email: '',
       dateOfBirth: '',
@@ -24,7 +26,7 @@ const SettingPage = () => {
       country: '',
     },
     error: {
-      yourName: [],
+      fullName: [],
       userName: [],
       email: [],
       dateOfBirth: [],
@@ -39,6 +41,8 @@ const SettingPage = () => {
 
   const editHandler = (e: any) => {
     e.preventDefault();
+
+    updateProfile!(values.value);
   };
 
   return (
@@ -57,6 +61,7 @@ const SettingPage = () => {
             onChange={onInputChange}
             values={values}
             submitHandler={editHandler}
+            isPending={isPending}
           />
         </TabsContent>
         <TabsContent value="password">Change your password here.</TabsContent>

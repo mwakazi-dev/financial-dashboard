@@ -1,9 +1,10 @@
+import { lazy } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import RootLayout from '../pages/layout';
-import DashboardPage from '../pages/dashboard';
-import SettingPage from '../pages/settings';
-import NotFound from '../pages/not-found';
+const RootLayout = lazy(() => import('../pages/layout'));
+const DashboardPage = lazy(() => import('../pages/dashboard'));
+const SettingPage = lazy(() => import('../pages/settings'));
+const NotFound = lazy(() => import('../pages/not-found'));
 
 const router = createBrowserRouter([
   {
@@ -11,11 +12,11 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       {
-        path: '/',
+        index: true,
         element: <DashboardPage />,
       },
       {
-        path: '/settings',
+        path: 'settings',
         element: <SettingPage />,
       },
       {
