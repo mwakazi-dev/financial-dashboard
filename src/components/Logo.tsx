@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import { ReactComponent as CheckIcon } from '../assets/check.svg';
-import classes from '../styles/Logo.module.css';
+import classes from '../styles/logo.module.css';
 
 const Logo = () => {
   return (
