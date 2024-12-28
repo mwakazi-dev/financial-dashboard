@@ -6,7 +6,7 @@ import { Button } from './Button';
 import { NAV_ITEMS } from '../data/nav';
 import UserImage from '../assets/user.jpg';
 import SearchInput from './SearchInput';
-import classes from '../styles/Navbar.module.css';
+import classes from '../styles/navbar.module.css';
 
 const Navbar = () => {
   const location = useLocation();
