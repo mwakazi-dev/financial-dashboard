@@ -3,6 +3,7 @@ import { FC } from 'react';
 import { Icon } from '../constants/icons';
 import { Transaction } from '../types/transaction';
 import { cn } from '../lib/utils';
+import withSkeleton from '../hoc/withLoading';
 
 interface Props {
   transactions: Transaction[];
@@ -23,7 +24,7 @@ const TransactionList: FC<Props> = ({ transactions }) => {
                   'text-[#FFBB38] bg-[#FFF5D9]',
                 transaction.category === 'paypal' &&
                   'text-[#396AFF] bg-[#E7EDFF]',
-                transaction.category === 'dollar' &&
+                transaction.category === 'cash' &&
                   'text-[#16DBCC] bg-[#DCFAF8]',
               )}
             >
@@ -57,4 +58,4 @@ const TransactionList: FC<Props> = ({ transactions }) => {
   );
 };
 
-export default TransactionList;
+export default withSkeleton(TransactionList);

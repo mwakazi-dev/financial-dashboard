@@ -5,5 +5,5 @@ import { ReactComponent as DollarIcon } from '../assets/icons/dollar.svg';
 export const Icon: { [key: string]: React.ReactNode } = {
   card: <FinanceIcon />,
   paypal: <PaypalIcon />,
-  dollar: <DollarIcon />,
+  cash: <DollarIcon />,
 };

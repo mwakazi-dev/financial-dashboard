@@ -1,7 +1,18 @@
-import AppRoutes from './constants/routes';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
+import AppRoutes from './constants/routes';
+import { useMockAPI, useMockWebSocket } from './hooks/useMock';
+
+const queryClient = new QueryClient();
 const App = () => {
-  return <AppRoutes />;
+  useMockAPI();
+  useMockWebSocket();
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <AppRoutes />
+    </QueryClientProvider>
+  );
 };
 
 export default App;

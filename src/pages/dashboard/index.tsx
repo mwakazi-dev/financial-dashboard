@@ -1,3 +1,6 @@
+import { useQuery } from '@tanstack/react-query';
+
+import { transactionService } from '../../services/transaction';
 import CreditCard from '../../components/CreditCard';
 import WeeklyActivityChart from '../../components/WeeklyActivityChart';
 import ExpenseStatistics from '../../components/ExpenseStatistics';
@@ -5,6 +8,15 @@ import GridTitle from '../../components/GridTitle';
 import TransactionList from '../../components/TransactionList';
 
 const DashboardPage = () => {
+  // Queries
+  const {
+    data: transactionsHistoryData,
+    isLoading: isTransactionHistoryLoading,
+  } = useQuery({
+    queryKey: ['getTransactionHistoy'],
+    queryFn: transactionService.getTransactionHistory,
+  });
+
   const creditCards = [
     {
       id: '1',
@@ -19,41 +31,6 @@ const DashboardPage = () => {
       cardHolderName: 'John Doe',
       cardExpiry: '01/25',
       balance: 9000,
-    },
-  ];
-
-  const transactions = [
-    {
-      id: '1',
-      title: 'Transfer to John Doe',
-      amount: 850,
-      category: 'card',
-      createdAt: '2023-01-01',
-      type: 'INCOME' as const,
-    },
-    {
-      id: '2',
-      title: 'Transfer to John Doe',
-      amount: 100,
-      category: 'paypal',
-      createdAt: '2023-01-01',
-      type: 'EXPENSE' as const,
-    },
-    {
-      id: '3',
-      title: 'Transfer to John Doe',
-      amount: 100,
-      category: 'dollar',
-      createdAt: '2023-01-01',
-      type: 'EXPENSE' as const,
-    },
-    {
-      id: '4',
-      title: 'Transfer to John Doe',
-      amount: 160,
-      category: 'card',
-      createdAt: '2023-01-01',
-      type: 'INCOME' as const,
     },
   ];
 
@@ -96,8 +73,11 @@ const DashboardPage = () => {
         </div>
         <div className="col-span-12 desktop:col-span-4 ">
           <GridTitle title="Transactions" />
-          <div className="mt-[22px] desktop:mt-[20px] overflow-y-auto overflow-x-hidden scrollbar-hide">
-            <TransactionList transactions={transactions} />
+          <div className="mt-[22px] desktop:mt-[20px] overflow-y-scroll overflow-x-hidden">
+            <TransactionList
+              isLoading={isTransactionHistoryLoading}
+              transactions={transactionsHistoryData}
+            />
           </div>
         </div>
       </div>
