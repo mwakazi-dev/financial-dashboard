@@ -11,6 +11,7 @@ import {
 } from 'recharts';
 
 import useBreakpoints from '../hooks/useBreakpoints';
+import withLoading from '../hoc/withLoading';
 
 interface Props {
   data: any[];
@@ -86,4 +87,4 @@ const WeeklyActivityChart: FC<Props> = ({ data }) => {
   );
 };
 
-export default WeeklyActivityChart;
+export default withLoading(WeeklyActivityChart);

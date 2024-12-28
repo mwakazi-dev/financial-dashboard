@@ -63,6 +63,15 @@ const mockCards = [
     balance: 40000,
   },
 ];
+const mockWeeklyActivity = [
+  { day: 'Sat', withdraw: 450, deposit: 220 },
+  { day: 'Sun', withdraw: 320, deposit: 120 },
+  { day: 'Mon', withdraw: 300, deposit: 250 },
+  { day: 'Tue', withdraw: 450, deposit: 350 },
+  { day: 'Wed', withdraw: 150, deposit: 220 },
+  { day: 'Thu', withdraw: 400, deposit: 230 },
+  { day: 'Fri', withdraw: 380, deposit: 320 },
+];
 
 export const useMockAPI = () => {
   useEffect(() => {
@@ -79,6 +88,11 @@ export const useMockAPI = () => {
       }
       if (url.includes('/api/cards')) {
         return new Response(JSON.stringify(mockCards), { status: 200 });
+      }
+      if (url.includes('/api/weekly-activity')) {
+        return new Response(JSON.stringify(mockWeeklyActivity), {
+          status: 200,
+        });
       }
       return originalFetch(input, init);
     };

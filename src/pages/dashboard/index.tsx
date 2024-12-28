@@ -7,6 +7,8 @@ import WeeklyActivityChart from '../../components/WeeklyActivityChart';
 import ExpenseStatistics from '../../components/ExpenseStatistics';
 import GridTitle from '../../components/GridTitle';
 import TransactionList from '../../components/TransactionList';
+import CardLoading from '../../components/CardLoading';
+import { activityService } from '../../services/activity';
 
 const DashboardPage = () => {
   // Queries
@@ -23,15 +25,11 @@ const DashboardPage = () => {
     queryFn: cardService.getCards,
   });
 
-  const MOCK_WEEKLY_ACTIVITY = [
-    { day: 'Sat', withdraw: 450, deposit: 220 },
-    { day: 'Sun', withdraw: 320, deposit: 120 },
-    { day: 'Mon', withdraw: 300, deposit: 250 },
-    { day: 'Tue', withdraw: 450, deposit: 350 },
-    { day: 'Wed', withdraw: 150, deposit: 220 },
-    { day: 'Thu', withdraw: 400, deposit: 230 },
-    { day: 'Fri', withdraw: 380, deposit: 320 },
-  ];
+  const { data: weeklyActivityData, isLoading: isWeeklyActivityLoading } =
+    useQuery({
+      queryKey: ['getWeeklyActivity'],
+      queryFn: activityService.getWeeklyActivity,
+    });
 
   const expenses = [
     { name: 'Group A', value: 400 },
@@ -47,11 +45,7 @@ const DashboardPage = () => {
         <div className="col-span-12 desktop:col-span-8">
           <GridTitle title="My Cards" path="/cards" />
           <div className="flex desktop:gap-x-[30px] w-full overflow-x-auto overflow-y-hidden scrollbar-hide mt-[22px] desktop:mt-[20px]">
-            {isCardLoading && (
-              <div className="flex items-center justify-center w-full h-[200px]">
-                <p>Loading...</p>
-              </div>
-            )}
+            {isCardLoading && <CardLoading />}
             {cardData?.map((item: any, index: number) => (
               <div key={item.id} className="w-full">
                 <CreditCard
@@ -81,7 +75,10 @@ const DashboardPage = () => {
         <div className="col-span-12 desktop:col-span-8">
           <GridTitle title="Weekly Activity" />
           <div className="mt-[22px] desktop:mt-[20px] ">
-            <WeeklyActivityChart data={MOCK_WEEKLY_ACTIVITY} />
+            <WeeklyActivityChart
+              isLoading={isWeeklyActivityLoading}
+              data={weeklyActivityData}
+            />
           </div>
         </div>
         <div className="col-span-12 desktop:col-span-4">
