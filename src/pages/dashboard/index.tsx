@@ -1,15 +1,21 @@
+import { lazy } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
 import { transactionService } from '../../services/transaction';
 import { cardService } from '../../services/card';
 import { activityService } from '../../services/activity';
 import { expenseService } from '../../services/expense';
-import CreditCard from '../../components/CreditCard';
-import WeeklyActivityChart from '../../components/WeeklyActivityChart';
-import ExpenseStatistics from '../../components/ExpenseStatistics';
 import GridTitle from '../../components/GridTitle';
-import TransactionList from '../../components/TransactionList';
 import CardLoading from '../../components/CardLoading';
+
+const CreditCard = lazy(() => import('../../components/CreditCard'));
+const TransactionList = lazy(() => import('../../components/TransactionList'));
+const WeeklyActivityChart = lazy(
+  () => import('../../components/WeeklyActivityChart'),
+);
+const ExpenseStatistics = lazy(
+  () => import('../../components/ExpenseStatistics'),
+);
 
 const DashboardPage = () => {
   // Queries
@@ -82,7 +88,7 @@ const DashboardPage = () => {
           </div>
         </div>
         <div className="col-span-12 desktop:col-span-4">
-          <GridTitle title="Expenses" />
+          <GridTitle title="Expense Statistics" />
           <div className="mt-[22px] desktop:mt-[20px]">
             <ExpenseStatistics
               isLoading={isExpenseStatisticsLoading}
