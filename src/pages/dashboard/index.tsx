@@ -59,8 +59,8 @@ const DashboardPage = () => {
             ))}
           </div>
         </div>
-        <div className="col-span-12 desktop:col-span-4 ">
-          <GridTitle title="Transactions" />
+        <div className="col-span-12 desktop:col-span-4">
+          <GridTitle title="Recent Transactions" />
           <div className="mt-[22px] desktop:mt-[20px] overflow-y-scroll overflow-x-hidden">
             <TransactionList
               isLoading={isTransactionHistoryLoading}
