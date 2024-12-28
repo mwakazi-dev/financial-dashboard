@@ -1,6 +1,5 @@
 import { useLocation } from 'react-router-dom';
 
-import { Avatar, AvatarFallback, AvatarImage } from './Avatar';
 import { ReactComponent as HamburgerIcon } from '../assets/hamburger.svg';
 import { PageTitle } from '../types/enums';
 import { Button } from './Button';
@@ -13,18 +12,20 @@ const Navbar = () => {
   const location = useLocation();
 
   return (
-    <nav className="flex justify-between items-center ">
-      <div className="desktop:hidden ">
-        <HamburgerIcon />
+    <nav className="flex justify-between items-center desktop:h-full">
+      <div className="desktop:hidden">
+        <span className={classes['hamburger-container']}>
+          <HamburgerIcon />
+        </span>
       </div>
-      <h1 className="text-[20px] desktop:text-[28px] font-[600] desktop:leading-[33.89px]">
+      <h1 className="mobile:text-[20px] mobile:leading-[24.2px] desktop:text-[28px] desktop:leading-[33.89px] text-foreground font-sans font-[600]">
         {PageTitle[location.pathname as keyof typeof PageTitle]}
       </h1>
-      <div className="flex items-center gap-[30px]">
-        <div className=" mobile:hidden desktop:block">
+      <div className="flex items-center gap-x-[30px]">
+        <div className="mobile:hidden desktop:block">
           <SearchInput />
         </div>
-        <div className="flex gap-[20px] items-center mobile:hidden desktop:flex ">
+        <div className="flex items-center gap-x-[30px] mobile:hidden desktop:flex desktop:items-center">
           {NAV_ITEMS.map((item) => (
             <div className={classes['link-btn-container']} key={item.path}>
               <Button
@@ -37,10 +38,11 @@ const Navbar = () => {
           ))}
         </div>
 
-        <Avatar>
-          <AvatarImage src={UserImage} />
-          <AvatarFallback>CN</AvatarFallback>
-        </Avatar>
+        <img
+          src={UserImage}
+          alt="User Pic"
+          className="rounded-full mobile:h-[35px] mobile:w-[35px] desktop:h-[60px] desktop:w-[60px]"
+        />
       </div>
     </nav>
   );
